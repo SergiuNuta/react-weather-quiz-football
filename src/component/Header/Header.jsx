@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import styles from "./Header.module.scss";
-import Weather from "../Weather/Weather";
 import NavItem from "./NavItem/NavItem";
 
 export default class Header extends Component {
