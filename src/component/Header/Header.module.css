@@ -1,0 +1,16 @@
+.navList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin: 0 20px;
+}
+
+.navList a {
+  color: #d8c0ad;
+  margin: 0 10px;
+  text-decoration: none;
+}
+/*# sourceMappingURL=Header.module.css.map */
