@@ -8,12 +8,11 @@ export default class Quiz extends Component {
     state = {
         question: [],
         answers: [],
-        correctAnswer: [],
-        result: true
+        correctAnswer: []
     }
 
     checked = (event) => {
-        event.target.value === this.state.correctAnswer ? alert("Correct") : alert("Incorrect");
+        event.target.value === this.state.correctAnswer ? alert("Correct!") : alert("Incorrect!");
     }
 
     componentDidMount() {
