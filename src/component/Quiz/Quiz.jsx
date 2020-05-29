@@ -11,18 +11,18 @@ export default class Quiz extends Component {
         correctAnswer: []
     }
 
-    checked = (event) => {
+    checkAnswer = (event) => {
         event.target.value === this.state.correctAnswer ? alert("Correct!") : alert("Incorrect!");
     }
 
     componentDidMount() {
-        const result = data.map(doc => {
+        data.map(doc => {
             this.setState({
                 question: doc.question,
                 answers: doc.answers,
                 correctAnswer: doc.correctAnswer
 
-            })
+            });
         })
     }
 
@@ -35,7 +35,7 @@ export default class Quiz extends Component {
                     <p>{this.state.question}</p>
                     {Object.entries(answerData).map((data, index) => {
                         return (<section className={styles.row} key={index}>
-                            <input type="radio" name="firstAnswer" onChange={this.checked} value={data[1]} />
+                            <input type="radio" name="firstAnswer" onChange={this.checkAnswer} value={data[1]} />
                             <label>{data[1]}</label></section>)
                     })}
                 </div>

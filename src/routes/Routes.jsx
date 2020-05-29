@@ -14,6 +14,7 @@ export default class Routes extends Component {
                 <Weather path="weather" />
                 <Quiz path="quiz" />
                 <Football path="football" />
+                <NotFound default />
             </Router>
         )
     }
