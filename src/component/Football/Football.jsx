@@ -95,13 +95,8 @@ export default class Football extends Component {
         });
     };
 
-    // componentDidMount() {
-    //     const players = data.map(player => player);
-    //     this.setState({ players: [...this.state.players, players] });
-
-    // }
     render() {
-        console.log(this.state.players);
+        // console.log(this.state.players);
         const playerData = this.state.players;
         const teamData = this.state.team;
         return (
@@ -127,16 +122,16 @@ export default class Football extends Component {
                     </div>
 
                     <div className={styles.stadium}>
-                    <div className={styles.card}>
+                    <div className={styles.goalkeeperCard}>
                             {teamData.map(player => player.position === "Goalkeeper" ? <PlayerCard key={player.id} playerData={player} handleClick={this.handleClick} /> : null)}
                         </div>
-                        <div className={styles.card}>
+                        <div className={styles.defenderCard}>
                             {teamData.map(player => player.position === "Defender" ? <PlayerCard key={player.id} playerData={player} handleClick={this.handleClick} /> : null)}
                         </div>
-                        <div className={styles.card}>
+                        <div className={styles.midfielderCard}>
                             {teamData.map(player => player.position === "Midfielder" ? <PlayerCard key={player.id} playerData={player} handleClick={this.handleClick} /> : null)}
                         </div>
-                        <div className={styles.card}>
+                        <div className={styles.attackerCard}>
                             {teamData.map(player => player.position === "Attacker" ? <PlayerCard key={player.id} playerData={player} handleClick={this.handleClick} /> : null)}
                         </div>
                     </div>
