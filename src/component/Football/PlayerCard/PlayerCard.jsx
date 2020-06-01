@@ -4,7 +4,6 @@ import styles from "./PlayerCard.module.scss";
 
 export default class PlayerCard extends Component {
     render() {
-        console.log(this.props.playerData);
         const playerData = this.props.playerData;
         return (
             <>

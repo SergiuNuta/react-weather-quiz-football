@@ -9,10 +9,10 @@ export default class Football extends Component {
     state = {
         players: data,
         team: [],
-        goalkeeper: [],
-        defender: [],
-        midfielder: [],
-        attacker: [],
+        goalkeeper: 0,
+        defender: 0,
+        midfielder: 0,
+        attacker: 0,
     }
 
     handleClick = (player) => {
@@ -42,61 +42,51 @@ export default class Football extends Component {
 
 
     checkPlayerPosition = (player) => {
+        if(this.state.team.length < 11) {
         switch (player.position) {
             case "Goalkeeper":
                 if (this.state.goalkeeper < 1) {
-                    this.setState({ goalkeeper: this.state.goalkeeper + 1, });
+                    this.setState({ goalkeeper: this.state.goalkeeper + 1 });
                     return true;
-                } else {
-                    return false;
                 }
+                break;
             case "Defender":
                 if (this.state.defender < 3) {
-                    this.setState({ defender: this.state.defender + 1, });
+                    this.setState({ defender: this.state.defender + 1 });
                     return true;
-                } else {
-                    return false;
                 }
+                break;
             case "Midfielder":
                 if (this.state.midfielder < 4) {
-                    this.setState({ midfielder: this.state.midfielder + 1, });
+                    this.setState({ midfielder: this.state.midfielder + 1 });
                     return true;
-                } else {
-                    return false;
                 }
+                break;
             case "Attacker":
                 if (this.state.attacker < 3) {
-                    this.setState({ attacker: this.state.attacker + 1, });
+                    this.setState({ attacker: this.state.attacker + 1 });
                     return true;
-                } else {
-                    return false;
                 }
-            // default:
+                break;
+            default:
             // "Do nothing";
         }
+    }
         return false;
     };
 
-    adjustTeam = () => {
-        this.setState({
-            goalkeeper: this.state.goalkeeper - 1,
-        });
+    adjustTeam = (player) => {
+        this.setState({ goalkeeper: this.state.goalkeeper - 1 });
 
-        this.setState({
-            defender: this.state.defender - 1,
-        });
+        this.setState({ defender: this.state.defender - 1 });
 
-        this.setState({
-            midfielder: this.state.midfielder - 1,
-        });
+        this.setState({ midfielder: this.state.midfielder - 1 });
 
-        this.setState({
-            attacker: this.state.attacker - 1,
-        });
+        this.setState({ attacker: this.state.attacker - 1 });
     };
 
     render() {
-        // console.log(this.state.players);
+        console.log(this.state.team);
         const playerData = this.state.players;
         const teamData = this.state.team;
         return (
@@ -105,34 +95,82 @@ export default class Football extends Component {
                     <div className={styles.players}>
                         <div className={styles.card}>
                             <h2>Goalkeeper</h2>
-                            {playerData.map(player => player.position === "Goalkeeper" ? <PlayerCard key={player.id} playerData={player} handleClick={this.handleClick} /> : null)}
+                            {playerData.map(player => player.position === "Goalkeeper" ?
+                                <PlayerCard
+                                    key={player.id}
+                                    playerData={player}
+                                    handleClick={this.handleClick}
+                                />
+                                : null)}
                         </div>
                         <div className={styles.card}>
                             <h2>Defender</h2>
-                            {playerData.map(player => player.position === "Defender" ? <PlayerCard key={player.id} playerData={player} handleClick={this.handleClick} /> : null)}
+                            {playerData.map(player => player.position === "Defender" ?
+                                <PlayerCard
+                                    key={player.id}
+                                    playerData={player}
+                                    handleClick={this.handleClick}
+                                />
+                                : null)}
                         </div>
                         <div className={styles.card}>
                             <h2>Midfielder</h2>
-                            {playerData.map(player => player.position === "Midfielder" ? <PlayerCard key={player.id} playerData={player} handleClick={this.handleClick} /> : null)}
+                            {playerData.map(player => player.position === "Midfielder" ?
+                                <PlayerCard
+                                    key={player.id}
+                                    playerData={player}
+                                    handleClick={this.handleClick}
+                                />
+                                : null)}
                         </div>
                         <div className={styles.card}>
                             <h2>Attacker</h2>
-                            {playerData.map(player => player.position === "Attacker" ? <PlayerCard key={player.id} playerData={player} handleClick={this.handleClick} /> : null)}
+                            {playerData.map(player => player.position === "Attacker" ?
+                                <PlayerCard
+                                    key={player.id}
+                                    playerData={player}
+                                    handleClick={this.handleClick}
+                                />
+                                : null)}
                         </div>
                     </div>
 
                     <div className={styles.stadium}>
-                    <div className={styles.goalkeeperCard}>
-                            {teamData.map(player => player.position === "Goalkeeper" ? <PlayerCard key={player.id} playerData={player} handleClick={this.handleClick} /> : null)}
+                        <div className={styles.goalkeeperCard}>
+                            {teamData.map(player => player.position === "Goalkeeper" ?
+                                <PlayerCard
+                                    key={player.id}
+                                    playerData={player}
+                                    handleClick={this.handleClick}
+                                />
+                                : null)}
                         </div>
                         <div className={styles.defenderCard}>
-                            {teamData.map(player => player.position === "Defender" ? <PlayerCard key={player.id} playerData={player} handleClick={this.handleClick} /> : null)}
+                            {teamData.map(player => player.position === "Defender" ?
+                                <PlayerCard
+                                    key={player.id}
+                                    playerData={player}
+                                    handleClick={this.handleClick}
+                                />
+                                : null)}
                         </div>
                         <div className={styles.midfielderCard}>
-                            {teamData.map(player => player.position === "Midfielder" ? <PlayerCard key={player.id} playerData={player} handleClick={this.handleClick} /> : null)}
+                            {teamData.map(player => player.position === "Midfielder" ?
+                                <PlayerCard
+                                    key={player.id}
+                                    playerData={player}
+                                    handleClick={this.handleClick}
+                                />
+                                : null)}
                         </div>
                         <div className={styles.attackerCard}>
-                            {teamData.map(player => player.position === "Attacker" ? <PlayerCard key={player.id} playerData={player} handleClick={this.handleClick} /> : null)}
+                            {teamData.map(player => player.position === "Attacker" ?
+                                <PlayerCard
+                                    key={player.id}
+                                    playerData={player}
+                                    handleClick={this.handleClick}
+                                />
+                                : null)}
                         </div>
                     </div>
                 </div>
