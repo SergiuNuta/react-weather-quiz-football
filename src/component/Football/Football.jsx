@@ -100,7 +100,7 @@ export default class Football extends Component {
                 <div className={styles.wrapper}>
                     <div className={styles.players}>
                         <div className={styles.card}>
-                            <h2>Goalkeeper</h2>
+                            <h2>Goalkeepers</h2>
                             {playerData.map(player => player.position === "Goalkeeper" ?
                                 <PlayerCard
                                     key={player.id}
@@ -110,7 +110,7 @@ export default class Football extends Component {
                                 : null)}
                         </div>
                         <div className={styles.card}>
-                            <h2>Defender</h2>
+                            <h2>Defenders</h2>
                             {playerData.map(player => player.position === "Defender" ?
                                 <PlayerCard
                                     key={player.id}
@@ -120,7 +120,7 @@ export default class Football extends Component {
                                 : null)}
                         </div>
                         <div className={styles.card}>
-                            <h2>Midfielder</h2>
+                            <h2>Midfielders</h2>
                             {playerData.map(player => player.position === "Midfielder" ?
                                 <PlayerCard
                                     key={player.id}
@@ -130,7 +130,7 @@ export default class Football extends Component {
                                 : null)}
                         </div>
                         <div className={styles.card}>
-                            <h2>Attacker</h2>
+                            <h2>Attackers</h2>
                             {playerData.map(player => player.position === "Attacker" ?
                                 <PlayerCard
                                     key={player.id}
