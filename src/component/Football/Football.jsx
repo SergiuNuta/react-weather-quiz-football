@@ -42,51 +42,57 @@ export default class Football extends Component {
 
 
     checkPlayerPosition = (player) => {
-        if(this.state.team.length < 11) {
-        switch (player.position) {
-            case "Goalkeeper":
-                if (this.state.goalkeeper < 1) {
-                    this.setState({ goalkeeper: this.state.goalkeeper + 1 });
-                    return true;
-                }
-                break;
-            case "Defender":
-                if (this.state.defender < 3) {
-                    this.setState({ defender: this.state.defender + 1 });
-                    return true;
-                }
-                break;
-            case "Midfielder":
-                if (this.state.midfielder < 4) {
-                    this.setState({ midfielder: this.state.midfielder + 1 });
-                    return true;
-                }
-                break;
-            case "Attacker":
-                if (this.state.attacker < 3) {
-                    this.setState({ attacker: this.state.attacker + 1 });
-                    return true;
-                }
-                break;
-            default:
-            // "Do nothing";
+        if (this.state.team.length < 11) {
+            switch (player.position) {
+                case "Goalkeeper":
+                    if (this.state.goalkeeper < 1) {
+                        this.setState({ goalkeeper: this.state.goalkeeper + 1 });
+                        return true;
+                    }
+                    break;
+                case "Defender":
+                    if (this.state.defender < 3) {
+                        this.setState({ defender: this.state.defender + 1 });
+                        return true;
+                    }
+                    break;
+                case "Midfielder":
+                    if (this.state.midfielder < 4) {
+                        this.setState({ midfielder: this.state.midfielder + 1 });
+                        return true;
+                    }
+                    break;
+                case "Attacker":
+                    if (this.state.attacker < 3) {
+                        this.setState({ attacker: this.state.attacker + 1 });
+                        return true;
+                    }
+                    break;
+                default:
+                // "Do nothing";
+            }
         }
-    }
         return false;
     };
 
     adjustTeam = (player) => {
-        this.setState({ goalkeeper: this.state.goalkeeper - 1 });
-
-        this.setState({ defender: this.state.defender - 1 });
-
-        this.setState({ midfielder: this.state.midfielder - 1 });
-
-        this.setState({ attacker: this.state.attacker - 1 });
+        switch (player.position) {
+            case "Goalkeeper":
+                this.setState({ goalkeeper: this.state.goalkeeper - 1 });
+                break;
+            case "Defender":
+                this.setState({ defender: this.state.defender - 1 });
+                break;
+            case "Midfielder":
+                this.setState({ midfielder: this.state.midfielder - 1 });
+                break;
+            case "Attacker":
+                this.setState({ attacker: this.state.attacker - 1 });
+                break;
+        }
     };
 
     render() {
-        console.log(this.state.team);
         const playerData = this.state.players;
         const teamData = this.state.team;
         return (
