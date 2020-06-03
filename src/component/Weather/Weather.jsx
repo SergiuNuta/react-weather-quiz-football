@@ -5,7 +5,7 @@ import axios from "axios";
 export default class Weather extends Component {
     state = {
         cities: [],
-        apiUrl: 'http://api.openweathermap.org/data/2.5/group?id=2643744,4749005,4219762&units=metric&appid=0f33f5c78acf44e7d38b5f6706f6f59d'
+        apiUrl: 'https://api.openweathermap.org/data/2.5/group?id=2643744,4749005,4219762&units=metric&appid=0f33f5c78acf44e7d38b5f6706f6f59d'
     }
 
     async componentDidMount() {
