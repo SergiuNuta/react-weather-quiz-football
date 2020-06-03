@@ -21,9 +21,9 @@ export default class Weather extends Component {
                     <section className={styles.cardWrapper}>
                         {this.state.cities.map((city, index) => (
                             <div className={styles.cards} key={index}>
-                                <p>Name: {city.name}</p>
-                                <p>Temperature: {city.main.temp} &deg;C</p>
-                                <p>Humidity: {city.main.humidity} %</p>
+                                <h1>{city.name}</h1>
+                                <h3>Temperature: {city.main.temp} &deg;C</h3>
+                                <p>Humidity: {city.main.humidity}%</p>
                                 <p>Minimum: {city.main.temp_min} &deg;C</p>
                                 <p>Maximum: {city.main.temp_max} &deg;C</p>
                             </div>
