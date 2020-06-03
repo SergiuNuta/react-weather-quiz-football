@@ -23,9 +23,9 @@ export default class Weather extends Component {
                             <div className={styles.cards} key={index}>
                                 <h1>{city.name}</h1>
                                 <h3>Temperature: {city.main.temp} &deg;C</h3>
-                                <p>Humidity: {city.main.humidity}%</p>
-                                <p>Minimum: {city.main.temp_min} &deg;C</p>
-                                <p>Maximum: {city.main.temp_max} &deg;C</p>
+                                <h5>Humidity: {city.main.humidity}%</h5>
+                                <h5>Minimum: {city.main.temp_min} &deg;C</h5>
+                                <h5>Maximum: {city.main.temp_max} &deg;C</h5>
                             </div>
                         ))}
                     </section>) : (
